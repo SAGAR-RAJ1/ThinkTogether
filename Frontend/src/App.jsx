@@ -2,6 +2,7 @@
 import './App.css'
 import Navbar from "./views/includes/Navbar"
 import Home from "./components/Home/home"
+import Cards from "./components/Cards/Cards"
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <>
     <Navbar/>
     <Home/>
+    <Cards/>
   
    
     </>

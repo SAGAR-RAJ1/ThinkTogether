@@ -1,3 +1,4 @@
+import { Link } from "react-scroll";
 function Navbar() {
   return (
     <div>
@@ -13,10 +14,10 @@ function Navbar() {
                 <a className="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">My Ideas</a>
+              <Link className="nav-link" to="ideaCont" smooth={true} duration={500}>Ideas</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Shared Project</a>
+                <Link className="nav-link" to="ideaCont" smooth={true} duration={500}>My Ideas</Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">About</a> 
