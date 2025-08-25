@@ -1,0 +1,47 @@
+.homebg {
+  background: #ecf2fb;
+  display: flex;
+  width: 100%;
+  height: 70vh;
+ 
+}
+.leftHome{
+    margin: auto;
+    background: transparent;
+    padding: 4px;
+    width: 40%;
+    margin-top: auto;
+
+}
+.leftHome h1,p,i{
+    background: #ecf2fb;
+    font-weight: 700;
+
+}
+.leftHome button{
+    background: black;
+    color: white;
+    padding: 0.5rem;margin: auto;
+    border-radius: 10px;
+ 
+
+}
+.rightHome{
+margin: auto;
+width: 40%;
+background: transparent;
+
+}
+.rightHome img{
+
+background: transparent;
+width: 100%;
+
+}
+
+@media (max-width: 768px) {
+.homebg{
+ flex-direction: column;
+}
+
+}
