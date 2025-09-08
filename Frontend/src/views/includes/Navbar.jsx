@@ -15,7 +15,7 @@ function Navbar() {
                 <Link className="nav-link active" aria-current="page" to="ideaCont">Home</Link>
               </li>
               <li className="nav-item">
-              <Link className="nav-link" to="ideaCont" smooth={true} duration={500}>Ideas</Link>
+              <a className="nav-link" href="http://localhost:3000/ideas">Ideas</a>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="ideaCont" smooth={true} duration={500}>My Ideas</Link>

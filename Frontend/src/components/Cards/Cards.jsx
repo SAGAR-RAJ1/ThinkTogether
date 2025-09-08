@@ -24,7 +24,7 @@ export default function Cards() {
         <div className="ideas">
           <div className="d-flex flex-wrap gap-4">
             {ideas.length === 0 ? (
-              <p>Loading ideas...</p>
+              <p><i>Loading ideas...</i></p>
             ) : (
               ideas
                 .slice(0, 8)
