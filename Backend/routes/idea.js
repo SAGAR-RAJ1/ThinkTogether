@@ -6,10 +6,11 @@ const router = express.Router();
 const IdeaController = require("../controllers/ideas.js");
 
 // Get all ideas
-router.get("/ideas", IdeaController.getAllIdeas);
+router.get("/", IdeaController.getAllIdeas);
 // Create a new idea
-router.post("/ideas", IdeaController.createIdea);
-
+router.post("/", IdeaController.createIdea);
+//Delete an idea
+router.delete("/:id", IdeaController.deleteIdea);
 
 
 

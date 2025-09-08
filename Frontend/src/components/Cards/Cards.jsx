@@ -1,5 +1,5 @@
 import "./Cards.css";
-import Idea from "../Idea/Idea";
+import Idea from "../IdeaCard/Idea";
 import { useEffect, useState } from "react";
 
 export default function Cards() {
@@ -15,7 +15,7 @@ export default function Cards() {
     <>
       <div className="container mt-5 ">
         <h2 className="mb-5" id="ideaCont">
-          The Featured Cards
+          The Featured Ideas
         </h2>
 
         <hr />

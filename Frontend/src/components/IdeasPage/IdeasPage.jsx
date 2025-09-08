@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import Idea from "../Idea/Idea";
+import Idea from "../IdeaCard/Idea";
 
 function Ideaspage() {
   const [ideas, setIdeas] = useState([]);

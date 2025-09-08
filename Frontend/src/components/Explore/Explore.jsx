@@ -1,11 +1,12 @@
 import React from 'react'
 
-function PostIdea() {
+function Explore() {
   return (
     <div>
-      hy
+        hy
+      
     </div>
   )
 }
 
-export default PostIdea
+export default Explore

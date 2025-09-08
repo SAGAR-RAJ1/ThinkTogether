@@ -1,11 +1,12 @@
 import React from 'react'
 
-function PostIdea() {
+function myIdea() {
   return (
     <div>
-      hy
+
+      MY IDEAs
     </div>
   )
 }
 
-export default PostIdea
+export default myIdea

@@ -29,7 +29,7 @@ function Navbar() {
                 <Link
                   className="nav-link active"
                   aria-current="page"
-                  to="/ideas"
+                  to="/"
                 >
                   Home
                 </Link>
@@ -42,7 +42,7 @@ function Navbar() {
               <li className="nav-item">
                 <Link
                   className="nav-link"
-                  to="ideaCont"
+                  to="/myIdeas"
                   smooth={true}
                   duration={500}
                 >
@@ -52,7 +52,7 @@ function Navbar() {
               <li className="nav-item">
                 <Link
                   className="nav-link"
-                  to="ideaCont"
+                  to="/login"
                   smooth={true}
                   duration={500}
                 >
@@ -62,15 +62,14 @@ function Navbar() {
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <Link className="nav-link" to="/post">
                   <button
                     className="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#postIdeaModal"
+                    
                   >
                     Post Idea
                   </button>
-                </a>
+                </Link>
               </li>
             </ul>
             {/* <li className="nav-item dropdown">

@@ -31,6 +31,6 @@ app.get('/', function(req, res) {
 
 //todo Routes to / will redirected or i could say will go to ./routes/idea
 const ideaRoutes = require("./routes/idea");
-app.use("/", ideaRoutes);
+app.use("/ideas", ideaRoutes);
 
 app.listen(3000);

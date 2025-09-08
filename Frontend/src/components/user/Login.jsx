@@ -1,11 +1,11 @@
 import React from 'react'
 
-function PostIdea() {
+function Login() {
   return (
     <div>
-      hy
+      Login
     </div>
   )
 }
 
-export default PostIdea
+export default Login

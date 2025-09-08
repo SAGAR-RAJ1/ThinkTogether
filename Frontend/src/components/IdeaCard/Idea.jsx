@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 import "./Idea.css"
 export default function Idea({link,desc,title}) {
   return (
@@ -8,7 +8,11 @@ export default function Idea({link,desc,title}) {
   <div className="card-body">
     <h5 className="card-title">{title}</h5>
     <p className="card-text">{desc}</p>
-    <a href="#" className="btn btn-primary">Explore</a>
+    <div style={{display:"flex" ,flexDirection:"column",padding:"5px",gap:"10px"}}>
+
+    <Link to="/explore" className="btn btn-primary">Explore</Link>
+
+    </div>
   </div>
 </div>
   
