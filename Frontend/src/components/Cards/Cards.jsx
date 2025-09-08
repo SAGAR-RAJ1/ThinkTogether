@@ -22,7 +22,7 @@ export default function Cards() {
         <br />
         <br />
         <div className="ideas">
-          <div className="d-flex flex-wrap gap-4">
+          <div className="d-flex flex-wrap gap-4 justify-content-center">
             {ideas.length === 0 ? (
               <p><i>Loading ideas...</i></p>
             ) : (

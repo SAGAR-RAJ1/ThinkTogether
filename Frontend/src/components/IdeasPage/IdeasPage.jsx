@@ -28,7 +28,7 @@ function Ideaspage() {
             <i>Loading ideas...</i>
           </p>
         ) : (
-          <div className="container d-flex flex-wrap gap-4 my-4">
+          <div className="container d-flex flex-wrap justify-content-center gap-4 my-4">
             {ideas.map((idea) => (
               <Idea
                 key={idea._id}

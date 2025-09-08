@@ -26,7 +26,7 @@ async function main() {
 }
 
 app.get('/', function(req, res) {
-    res.send("fuck aparna ");
+    res.send("HY MAI KAAM KR RHA");
 });
 
 //todo Routes to / will redirected or i could say will go to ./routes/idea
