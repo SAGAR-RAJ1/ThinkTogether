@@ -1,6 +1,7 @@
 import "./home.css";
 import Typed from "typed.js";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 function Home() {
   useEffect(() => {
     const typed = new Typed("#element", {
@@ -31,7 +32,8 @@ function Home() {
           </p>
           <br />
           <br />
-          <button>Post Your Idea</button>
+          <Link to="/post"> <button>Post Your Idea</button></Link>
+         
         </div>
 
         <div className="rightHome">
