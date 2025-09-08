@@ -1,4 +1,5 @@
 import { Link } from "react-scroll";
+
 function Navbar() {
   return (
     <div>
@@ -11,7 +12,7 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <Link className="nav-link active" aria-current="page" to="ideaCont">Home</Link>
               </li>
               <li className="nav-item">
               <Link className="nav-link" to="ideaCont" smooth={true} duration={500}>Ideas</Link>
@@ -20,8 +21,9 @@ function Navbar() {
                 <Link className="nav-link" to="ideaCont" smooth={true} duration={500}>My Ideas</Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">About</a> 
+                <Link className="nav-link" to="ideaCont" smooth={true} duration={500}>Log In</Link>
               </li>
+           
             </ul>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
