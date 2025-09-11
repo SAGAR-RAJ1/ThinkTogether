@@ -22,7 +22,8 @@ exports.createIdea = async (req, res) => {
       });
   
       await newIdea.save();
-      
+      res.redirect("http://localhost:5173/ideas");
+
     } catch (err) {
       res.status(500).json({ error: "Failed to add idea" });
     }
