@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
+import "./Includes.css"
 
 function Navbar() {
   return (
-    <div>
+    <div style={{position:"sticky",width:"100%",top:"0",zIndex:"10",background:"transparent"}}>
       <nav className="navbar navbar-expand-lg border-bottom border-dark py-3 fs-5 ">
-        <div className="container-fluid mx-3 ml-4 ">
+        <div className="container-fluid mx-3 ml-4  .navbar" style={{background:"transparent"}}>
           <Link
             className="navbar-brand fs-3"
-            style={{ color: "#0D6EFD" }}
+            style={{ color: "#0D6EFD" ,background:"transparent"}}
             to="/"
           >
             <i class="fa-solid fa-otter"></i>Think-Together
@@ -23,23 +24,24 @@ function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul className="navbar-nav">
-              <li className="nav-item">
+          <div className="collapse navbar-collapse" id="navbarNavDropdown" style={{background:"transparent"}}>
+            <ul className="navbar-nav"  style={{background:"transparent"}}>
+              <li className="nav-item"  style={{background:"transparent"}} >
                 <Link
                   className="nav-link active"
                   aria-current="page"
                   to="/"
+       
                 >
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item"  style={{background:"transparent"}}>
                 <Link className="nav-link" to="/ideas">
                   Ideas
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item"  style={{background:"transparent"}}>
                 <Link
                   className="nav-link"
                   to="/myIdeas"
@@ -49,7 +51,7 @@ function Navbar() {
                   My Ideas
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item"  style={{background:"transparent"}}>
                 <Link
                   className="nav-link"
                   to="/login"
@@ -61,9 +63,9 @@ function Navbar() {
               </li>
             </ul>
             <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
+              <li className="nav-item"  style={{background:"transparent"}}>
                 <Link className="nav-link" to="/post">
-                  <button
+                  <button 
                     className="btn btn-primary"
                     
                   >
@@ -90,3 +92,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
