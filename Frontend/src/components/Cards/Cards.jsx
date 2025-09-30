@@ -16,11 +16,7 @@ export default function Cards() {
       <div className="container mt-5 ">
         <h2 className="mb-5" id="ideaCont">
           The Featured Ideas
-        </h2>
-
-        <hr />
-        <br />
-        <br />
+        </h2> <hr /> <br /> <br />
         <div className="ideas">
           <div className="d-flex flex-wrap gap-4 justify-content-center">
             {ideas.length === 0 ? (
@@ -34,6 +30,7 @@ export default function Cards() {
                     link={idea.image.url}
                     title={idea.title}
                     desc={idea.description}
+                    id={idea._id}
                   />
                 ))
             )}

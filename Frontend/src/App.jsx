@@ -25,7 +25,7 @@ function App() {
         } />
         <Route path="/ideas" element={<IdeasPage />} />
         <Route path="/post" element={<PostIdea />} />
-        <Route path="/explore" element={<Explore />} />
+        <Route path="/explore/:id" element={<Explore />} />
         <Route path="/myIdeas" element={<MyIdea />} />
         <Route path="/login" element={<Login />} />
       </Routes>

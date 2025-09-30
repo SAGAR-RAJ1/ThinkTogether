@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import "./Idea.css"
-export default function Idea({link,desc,title}) {
+export default function Idea({link,desc,title,id}) {
   return (
     <div>
    <div className="card border-2" style={{ width: "18rem" }}>
@@ -10,11 +10,11 @@ export default function Idea({link,desc,title}) {
     <p className="card-text">{desc}</p>
     <div style={{display:"flex" ,flexDirection:"column",padding:"5px",gap:"10px"}}>
 
-    <Link to="/explore" className="btn btn-primary">Explore</Link>
+    <Link to={`/explore/${id}`} className="btn btn-primary">Explore</Link>
 
     </div>
   </div>
-</div>
+</div> 
   
       
     </div>

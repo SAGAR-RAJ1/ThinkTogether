@@ -32,6 +32,7 @@ function Ideaspage() {
             {ideas.map((idea) => (
               <Idea
                 key={idea._id}
+                id={idea._id}
                 link={idea.image.url}
                 title={idea.title}
                 desc={idea.description}

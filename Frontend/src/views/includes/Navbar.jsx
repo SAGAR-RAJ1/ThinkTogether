@@ -11,7 +11,7 @@ function Navbar() {
             style={{ color: "#0D6EFD" ,background:"transparent"}}
             to="/"
           >
-            <i class="fa-solid fa-otter"></i>Think-Together
+            <i  style={{background:"transparent"}} class="fa-solid fa-otter"></i>Think-Together
           </Link>
           <button
             className="navbar-toggler"
@@ -62,10 +62,10 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-            <ul className="navbar-nav ms-auto">
+            <ul className="navbar-nav ms-auto"   style={{background:"transparent"}}>
               <li className="nav-item"  style={{background:"transparent"}}>
                 <Link className="nav-link" to="/post">
-                  <button 
+                  <button  
                     className="btn btn-primary"
                     
                   >

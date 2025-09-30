@@ -1,0 +1,18 @@
+.explore{
+
+    max-width: 60vw;
+    margin-top: 2rem;
+}
+.explore h2{
+    /* font-family: poppins, sans-serif; */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+
+}
+.explore-img{
+   height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
