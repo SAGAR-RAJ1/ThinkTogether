@@ -18,7 +18,7 @@ exports.createIdea = async (req, res) => {
       const newIdea = new Idea({
         title,
         description,
-        image: { url: image }, // if you’re storing image URL
+        ...(image ? { image: { url: image } } : {}), 
       });
   
       await newIdea.save();
