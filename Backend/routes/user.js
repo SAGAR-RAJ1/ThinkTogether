@@ -11,13 +11,8 @@ router.route("/signup")
 .post(ListingUser.PostSignup); //Middleware for checking users already exist or not
 
 
-router.route("/login") 
-  .post(passport.authenticate("local", {
-      failureRedirect: "/login",
-      failureFlash: true,
-    }),
-    ListingUser.PostLogin
-  );
+router.route("/login")
+  .post(passport.authenticate("local"), ListingUser.PostLogin);
 
 router.route("/logout")
 .get(ListingUser.Logout);
