@@ -61,6 +61,15 @@ function Navbar() {
                   Log In
                 </Link>
               </li>
+              <li className="nav-item"  style={{background:"transparent"}}>
+                <Link
+                  className="nav-link"
+                  to="/signup"
+            
+                >
+                  Sign up
+                </Link>
+              </li>
             </ul>
             <ul className="navbar-nav ms-auto"   style={{background:"transparent"}}>
               <li className="nav-item"  style={{background:"transparent"}}>

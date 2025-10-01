@@ -18,9 +18,8 @@ function myIdea() {
    <div className=" myidea container">
     <h2>Your Ideas....</h2>
     <div className="myidea-card">
-        <h3>Idea Title</h3>
-        <button className='btn btn-primary'>View Details</button> 
-        </div>
+
+    </div>
    </div>
    </>
   )

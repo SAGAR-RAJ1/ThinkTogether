@@ -10,6 +10,7 @@ import PostIdea from './components/PostIdea/PostIdea'
 import Explore from './components/Explore/Explore'
 import MyIdea from './components/MyIdeas/myIdea'
 import Login from './components/user/Login'
+import Signup from './components/user/Signup'
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
         <Route path="/explore/:id" element={<Explore />} />
         <Route path="/myIdeas" element={<MyIdea />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup/>} />
       </Routes>
       <Footer />
     </>
