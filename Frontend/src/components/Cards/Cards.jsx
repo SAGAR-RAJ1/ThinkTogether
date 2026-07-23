@@ -1,7 +1,12 @@
 import "./Cards.css";
 import Idea from "../IdeaCard/Idea";
 import { useEffect, useState } from "react";
-
+/*
+  React Hooks give your component extra powers.
+  Here you’re using
+  useState() → Store data
+  useEffect() → Perform actions after rendering 
+*/
 export default function Cards() {
   const [ideas, setIdeas] = useState([]);
   useEffect(() => {
@@ -16,11 +21,14 @@ export default function Cards() {
       <div className="container mt-5 ">
         <h2 className="mb-5" id="ideaCont">
           The Featured Ideas
-        </h2> <hr /> <br /> <br />
+        </h2>{" "}
+        <hr /> <br /> <br />
         <div className="ideas">
           <div className="d-flex flex-wrap gap-4 justify-content-center">
             {ideas.length === 0 ? (
-              <p><i>Loading ideas...</i></p>
+              <p>
+                <i>Loading ideas...</i>
+              </p>
             ) : (
               ideas
                 .slice(0, 8)

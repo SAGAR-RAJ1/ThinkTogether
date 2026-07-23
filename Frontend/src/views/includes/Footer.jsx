@@ -9,10 +9,10 @@ function Footer() {
           <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="mx-2 fs-3 ">
             <i className="fab fa-github"></i>
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" className="mx-2 fs-3 ">
+          <a href="https://www.linkedin.com/in/sagar-01-raj/" target="_blank" rel="noreferrer" className="mx-2 fs-3 ">
             <i className="fab fa-linkedin"></i>
           </a>
-          <a href="https://twitter.com/yourusername" target="_blank" rel="noreferrer" className="mx-2 fs-3">
+          <a href="https://x.com/SAGARRA20033294" target="_blank" rel="noreferrer" className="mx-2 fs-3">
             <i className="fab fa-twitter"></i>
           </a>
         </div>

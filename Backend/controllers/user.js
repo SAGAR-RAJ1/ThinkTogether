@@ -45,20 +45,9 @@ module.exports.PostLogin = async (req, res) => {
     });
   }
 };
-
-module.exports.Logout = (req, res, next) => {
-  req.logout((err) => {
-    if (err) {
-      console.error("Logout error:", err);
-      return res.status(500).json({ 
-        success: false, 
-        message: "Logout failed", 
-        error: err.message 
-      });
-    }
-    res.status(200).json({ 
-      success: true, 
-      message: "Logged out successfully" 
-    });
+module.exports.Logout = (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Logout successful",
   });
 };

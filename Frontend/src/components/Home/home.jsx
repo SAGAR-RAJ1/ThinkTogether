@@ -11,7 +11,6 @@ function Home() {
         "<i>Innovate , Inspire</i>",
 
         "<i>Build , Grow</i>",
-
       ],
       typeSpeed: 100,
       loop: true,
@@ -25,15 +24,17 @@ function Home() {
     <>
       <div className="homebg">
         <div className="leftHome">
-          <span id="element" style={{ fontSize: '3.5rem' }}></span> <br />
+          <span id="element" style={{ fontSize: "3.5rem" }}></span> <br />
           <p className="homeP">
             Share your ideas, collaborate with others, and bring amazing
             projects to life.
           </p>
           <br />
           <br />
-          <Link to="/post"> <button>Post Your Idea</button></Link>
-         
+          <Link to="/post">
+            {" "}
+            <button>Post Your Idea</button>
+          </Link>
         </div>
 
         <div className="rightHome">

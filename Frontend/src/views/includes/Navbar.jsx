@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import "./Includes.css"
-
+import { Dropdown } from "react-bootstrap";
 function Navbar() {
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("http://localhost:3000/user/logout", { method: "POST", credentials: "include" });
+      const data = await response.json();
+      if (data.success) {
+        window.location.href = "/login";
+      }
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
   return (
     <div style={{position:"sticky",width:"100%",top:"0",zIndex:"10",background:"transparent"}}>
       <nav className="navbar navbar-expand-lg border-bottom border-dark py-3 fs-5 ">
@@ -51,7 +63,7 @@ function Navbar() {
                   My Ideas
                 </Link>
               </li>
-              <li className="nav-item"  style={{background:"transparent"}}>
+              {/* <li className="nav-item"  style={{background:"transparent"}}>
                 <Link
                   className="nav-link"
                   to="/login"
@@ -69,7 +81,19 @@ function Navbar() {
                 >
                   Sign up
                 </Link>
-              </li>
+              </li> */}
+          
+<Dropdown  style={{background:"transparent"}}>
+  <Dropdown.Toggle variant="link" id="dropdown-basic" >
+   User
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item href="/login">Log In</Dropdown.Item>
+    <Dropdown.Item href="/signup">Sign Up</Dropdown.Item>
+    <Dropdown.Item as="button" onClick={handleLogout}>Logout</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
             </ul>
             <ul className="navbar-nav ms-auto"   style={{background:"transparent"}}>
               <li className="nav-item"  style={{background:"transparent"}}>
@@ -83,16 +107,7 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-            {/* <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown link
-              </a>
-              <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="#">Action</a></li>
-                <li><a className="dropdown-item" href="#">Another action</a></li>
-                <li><a className="dropdown-item" href="#">Something else here</a></li>
-              </ul>
-            </li> */}
+          
           </div>
         </div>
       </nav>
@@ -101,5 +116,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-

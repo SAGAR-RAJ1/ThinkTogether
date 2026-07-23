@@ -3,18 +3,17 @@ import Navbar from "./views/includes/Navbar";
 import Home from "./components/Home/home";
 import Cards from "./components/Cards/Cards";
 import Footer from "./views/includes/Footer";
-import { Routes, Route } from "react-router-dom";
-import IdeasPage from "./components/IdeasPage/Ideaspage"; // ✅ import
+import { Routes, Route } from "react-router-dom";//without this in react routes doesnt work
+import IdeasPage from "./components/IdeasPage/Ideaspage"; 
 import PostIdea from "./components/PostIdea/PostIdea";
 import Explore from "./components/Explore/Explore";
 import MyIdea from "./components/MyIdeas/myIdea";
 import Login from "./components/user/Login";
 import Signup from "./components/user/Signup";
 
-
 function App() {
   return (
-    <>
+     <>  {/* fragments -> it doesnt create an extra html elemnt */}
       <Navbar />
       <Routes>
         <Route
@@ -34,7 +33,6 @@ function App() {
         <Route path="/signup" element={<Signup />} />
       </Routes>
       <Footer />
-
     </>
   );
 }
