@@ -9,7 +9,28 @@ exports.getAllIdeas = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+//my Ideas
+module.exports.myIdeas = async (req, res) => {
+  try {
+    console.log("Logged in user:", req.user._id);
 
+    const ideas = await Idea.find({
+      owner: req.user._id,
+    });
+
+    console.log("Ideas:", ideas);
+
+    return res.status(200).json({
+      success: true,
+      ideas,
+    });
+  } catch (err) {
+    return res.status(500).json({
+      success: false,
+      message: err.message,
+    });
+  }
+};
 // Create a new idea
 exports.createIdea = async (req, res) => {
   console.log("Inside createIdea");

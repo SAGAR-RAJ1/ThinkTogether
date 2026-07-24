@@ -8,6 +8,8 @@ const IdeaController = require("../controllers/ideas.js");
 
 // Get all ideas
 router.get("/", IdeaController.getAllIdeas);
+// Get my ideas
+router.get("/my", IdeaController.myIdeas);
 // Create a new idea
 router.post("/",isLoggedIn, IdeaController.createIdea);
 //Delete an idea
