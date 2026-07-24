@@ -6,10 +6,12 @@ import "./Includes.css";
 import { Dropdown } from "react-bootstrap";
 function Navbar() {
   const navigate = useNavigate();
+  const API = import.meta.env.VITE_API_URL;
+
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/user/logout",
+        `${API}/ideas/logout`,
         {},
         {
           withCredentials: true,
