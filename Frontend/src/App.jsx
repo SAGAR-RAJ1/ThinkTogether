@@ -10,6 +10,7 @@ import Explore from "./components/Explore/Explore";
 import MyIdea from "./components/MyIdeas/myIdea";
 import Login from "./components/user/Login";
 import Signup from "./components/user/Signup";
+import Profile from "./components/user/Profile";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/myIdeas" element={<MyIdea />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </>
