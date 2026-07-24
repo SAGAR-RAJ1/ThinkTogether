@@ -4,7 +4,7 @@ import Home from "./components/Home/home";
 import Cards from "./components/Cards/Cards";
 import Footer from "./views/includes/Footer";
 import { Routes, Route } from "react-router-dom";//without this in react routes doesnt work
-import IdeasPage from "./components/IdeasPage/Ideaspage"; 
+import IdeasPage from "./components/IdeasPage/IdeasPage"; 
 import PostIdea from "./components/PostIdea/PostIdea";
 import Explore from "./components/Explore/Explore";
 import myIdea from "./components/MyIdeas/myIdea";
