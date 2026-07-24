@@ -14,6 +14,7 @@ const ideaSchema = new Schema({
 
      }
     },
+     
     //Reviews are one to many relation typically under thousands
     // reviews:[{
     //   type:Schema.Types.ObjectId,

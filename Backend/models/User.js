@@ -5,9 +5,32 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const userSchema = new Schema({
   email: {
     type: String,
-    require:true,
+    require: true,
+  },
+  linkedin: {
+    type: String,
+    default: "",
+  },
 
-  }
+  github: {
+    type: String,
+    default: "",
+  },
+
+  portfolio: {
+    type: String,
+    default: "",
+  },
+
+  bio: {
+    type: String,
+    default: "",
+  },
+
+  profileImage: {
+    type: String,
+    default: "",
+  },
 });
 
 //Password salting hashing passport khud implement kr deta hai usk liye ye plugin k use kiye hai
@@ -15,4 +38,4 @@ const userSchema = new Schema({
 
 userSchema.plugin(passportLocalMongoose);
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model("User", userSchema);
