@@ -18,8 +18,11 @@ require("./config/googlePassport");
 const cors = require("cors");
 // used to connect backend and frontend, then as they are in different folders
 app.use(cors({
-  origin: "http://localhost:5173", // frontend
-  credentials: true//allows cookie sessions to pass
+  origin: [
+    "http://localhost:5173",
+    "https://your-vercel-app.vercel.app"
+  ],
+  credentials: true
 }));
 
 const mongoose = require('mongoose');
@@ -36,7 +39,7 @@ async function main() {
 //todo Using session
 const sessionOptions = {
   // store:store,
- secret: "mySecretCode", // cookies m kaam aata search krolo (just like privacy pass)
+ secret: process.env.SESSION_SECRET, // cookies m kaam aata search krolo (just like privacy pass)
  resave: false,
  saveUninitialized: true, //ye dono likhna pdta error aaata kiuch chat gpt m dkeh lo
 //  cookie: {
@@ -80,5 +83,7 @@ const userRoutes = require("./routes/user");
 app.use("/user", userRoutes);
 const authRoutes = require("./routes/auth");
 app.use("/auth", authRoutes);
-
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
