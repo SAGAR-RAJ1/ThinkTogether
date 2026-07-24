@@ -13,6 +13,7 @@ function Signup() {
     password: "",
   });
   const navigate = useNavigate(); //Creates a function that can change the URL.
+  const API = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +26,7 @@ function Signup() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/user/signup", {
+      const res = await fetch(`${API}/user/signup`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -112,7 +113,7 @@ function Signup() {
             type="button"
             className="btn btn-outline-dark w-100 mt-3"
             onClick={() => {
-              window.location.href = "http://localhost:3000/auth/google";
+              window.location.href = `${API}/auth/google`;
             }}
           >
             Continue with Google

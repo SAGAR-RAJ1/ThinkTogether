@@ -6,11 +6,11 @@ import Idea from "../IdeaCard/Idea";
 
 function myIdea() {
   const [ideas, setideas] = useState("");
-
+  const API = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchMyIdeas = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/ideas/my", {
+        const res = await axios.get(`${API}/ideas/my`, {
           withCredentials: true,
         });
 

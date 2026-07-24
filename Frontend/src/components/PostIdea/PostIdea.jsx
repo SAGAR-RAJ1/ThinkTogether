@@ -21,12 +21,12 @@ function PostIdea() {
       [name]: value,
     }));
   };
-
+  const API = import.meta.env.VITE_API_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3000/ideas", form, {
+      await axios.post(`${API}/ideas`, form, {
         withCredentials: true,
       });
 

@@ -10,8 +10,9 @@ import { useEffect, useState } from "react";
 */
 export default function Cards() {
   const [ideas, setIdeas] = useState([]);
+  const API = import.meta.env.VITE_API_URL;
   useEffect(() => {
-    fetch("http://localhost:3000/ideas")
+    fetch(`${API}/ideas`)
       .then((res) => res.json())
       .then((data) => setIdeas(data))
       .catch((err) => console.error("Error fetching ideas:", err));

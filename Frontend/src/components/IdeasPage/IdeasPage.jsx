@@ -4,14 +4,15 @@ import Idea from "../IdeaCard/Idea";
 
 function Ideaspage() {
   const [ideas, setIdeas] = useState([]);
-useEffect(() => {
-  fetch("http://localhost:3000/ideas", {
-    credentials: "include",
-  })
-    .then((res) => res.json())
-    .then((data) => setIdeas(data))
-    .catch((err) => console.error("Error fetching ideas:", err));
-}, []);
+  const API = import.meta.env.VITE_API_URL;
+  useEffect(() => {
+    fetch(`${API}/ideas`, {
+      credentials: "include",
+    })
+      .then((res) => res.json())
+      .then((data) => setIdeas(data))
+      .catch((err) => console.error("Error fetching ideas:", err));
+  }, []);
   return (
     <>
       <h4
@@ -23,7 +24,14 @@ useEffect(() => {
 
       <div
         className="container"
-        style={{ border: "2px solid blue", height: "auto",borderTopLeftRadius:'10px',borderTopRightRadius:'10px', marginTop:'50px', borderBottom: "none", }}
+        style={{
+          border: "2px solid blue",
+          height: "auto",
+          borderTopLeftRadius: "10px",
+          borderTopRightRadius: "10px",
+          marginTop: "50px",
+          borderBottom: "none",
+        }}
       >
         {ideas.length === 0 ? (
           <p>

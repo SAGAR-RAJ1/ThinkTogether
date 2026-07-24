@@ -37,16 +37,21 @@ async function main() {
   await mongoose.connect(process.env.MONGO_URI);
 }
 //todo Using session
+app.set("trust proxy", 1);
+
 const sessionOptions = {
-  // store:store,
- secret: process.env.SESSION_SECRET, // cookies m kaam aata search krolo (just like privacy pass)
- resave: false,
- saveUninitialized: true, //ye dono likhna pdta error aaata kiuch chat gpt m dkeh lo
-//  cookie: {
-//    expires: Date.now() + 7 * 24 * 60 * 60 * 1000, //after how many time the cokkie will expire
-//    httpOnly: true, //by default true so we set true no more knowledge about it now generally for security prevent crosssafety attacks
-//  },
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: false,
+  proxy: true,
+  cookie: {
+    httpOnly: true,
+    secure: true,
+    sameSite: "none",
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+  },
 };
+
 
 app.use(session(sessionOptions));
 app.use(flash());

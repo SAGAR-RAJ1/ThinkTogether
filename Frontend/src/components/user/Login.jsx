@@ -5,12 +5,12 @@ import { toast } from "react-toastify";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
+  const API = import.meta.env.VITE_API_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3000/user/login", {
+      const response = await fetch(`${API}/user/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -74,7 +74,7 @@ function Login() {
               type="button"
               className="btn btn-outline-dark w-100 mt-3"
               onClick={() => {
-                window.location.href = "http://localhost:3000/auth/google";
+                window.location.href = `${API}/auth/google`;
               }}
             >
               Continue with Google

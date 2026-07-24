@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 function Profile() {
     const [user, setUser] = useState(null);
-
+const API = import.meta.env.VITE_API_URL;
     useEffect(() => {
         const fetchProfile = async () => {
             try {
                 const res = await axios.get(
-                    "http://localhost:3000/user/profile",
+                    `${API}/user/profile`,
                     {
                         withCredentials: true,
                     }

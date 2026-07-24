@@ -12,11 +12,11 @@ function EditProfile() {
         linkedin: "",
         portfolio: "",
     });
-
+const API = import.meta.env.VITE_API_URL;
     useEffect(() => {
         const fetchProfile = async () => {
             const res = await axios.get(
-                "http://localhost:3000/user/profile",
+                `${API}/user/profile`,
                 {
                     withCredentials: true,
                 }
@@ -40,12 +40,12 @@ function EditProfile() {
             [e.target.name]: e.target.value,
         });
     };
-
+    //   const API = import.meta.env.VITE_API_URL;
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         await axios.put(
-            "http://localhost:3000/user/profile",
+              `${API}/user/profile`,
             formData,
             {
                 withCredentials: true,

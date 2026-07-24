@@ -6,10 +6,11 @@ const Explore = () => {
   const { id } = useParams(); // Get idea id from url °
 
   const [ideas, setIdeas] = useState([]);
+   const API = import.meta.env.VITE_API_URL;
   useEffect(() => {
     const fetchIdeas = async () => {
       try {
-        const res = await fetch("http://localhost:3000/ideas");
+        const res = await fetch(`${API}/ideas`);
         const data = await res.json();
         setIdeas(data);
       } catch (err) {
