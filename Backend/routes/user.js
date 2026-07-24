@@ -20,4 +20,6 @@ router.route("/logout")
 
 router.get("/profile", isLoggedIn, ListingUser.getProfile);
 
+router.put("/profile", isLoggedIn, ListingUser.updateProfile);
+
 module.exports = router;

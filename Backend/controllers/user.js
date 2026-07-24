@@ -16,6 +16,36 @@ module.exports.getProfile = async (req, res) => {
     }
 };
 
+module.exports.updateProfile = async (req, res) => {
+    try {
+        const { name, bio, github, linkedin, portfolio } = req.body;
+
+        const updatedUser = await User.findByIdAndUpdate(
+            req.user._id,
+            {
+                name,
+                bio,
+                github,
+                linkedin,
+                portfolio,
+            },
+            {
+                new: true,
+            }
+        );
+
+        res.status(200).json({
+            success: true,
+            user: updatedUser,
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+};
+
 module.exports.PostSignup = async (req, res) => {
   try {
     let { username, email, password } = req.body;

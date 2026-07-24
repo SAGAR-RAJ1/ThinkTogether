@@ -11,6 +11,7 @@ import MyIdea from "./components/MyIdeas/myIdea";
 import Login from "./components/user/Login";
 import Signup from "./components/user/Signup";
 import Profile from "./components/user/Profile";
+import EditProfile from "./components/user/EditProfile";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/profile/edit" element={<EditProfile />} />
       </Routes>
       <Footer />
     </>

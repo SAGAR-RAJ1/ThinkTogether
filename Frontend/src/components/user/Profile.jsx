@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Profile() {
     const [user, setUser] = useState(null);
@@ -101,9 +102,9 @@ function Profile() {
 
       </div>
 
-      <button className="btn btn-warning mt-4">
-        Edit Profile
-      </button>
+     <Link to="/profile/edit" className="btn btn-warning mt-4">
+    Edit Profile
+      </Link>
 
     </div>
   </div>
