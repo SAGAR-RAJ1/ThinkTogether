@@ -4,7 +4,7 @@ import axios from "axios";
 import "./myIdea.css";
 import Idea from "../IdeaCard/Idea";
 
-function myIdea() {
+function MyIdea() {
   const [ideas, setideas] = useState("");
   const API = import.meta.env.VITE_API_URL;
   useEffect(() => {
@@ -73,4 +73,4 @@ function myIdea() {
   );
 }
 
-export default myIdea;
+export default MyIdea;
