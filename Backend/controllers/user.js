@@ -8,46 +8,53 @@ module.exports.PostSignup = async (req, res) => {
 
     console.log(registeredUser);
 
-    res.status(201).json({ 
-      success: true, 
-      message: "Signup successful", 
-      user: registeredUser ,
-      redirect: "http://localhost:5173/"
+    res.status(201).json({
+      success: true,
+      message: "Signup successful",
+      user: registeredUser,
+      redirect: "http://localhost:5173/",
     });
-
   } catch (error) {
     console.error("Signup error:", error);
 
-    res.status(400).json({ 
-      success: false, 
-      message: "Signup failed", 
+    res.status(400).json({
+      success: false,
+      message: "Signup failed",
       error: error.message,
-      redirect: "http://localhost:5173/signup" 
+      redirect: "http://localhost:5173/signup",
     });
   }
 };
 
 module.exports.PostLogin = async (req, res) => {
   try {
-    res.status(200).json({ 
-      success: true, 
+    res.status(200).json({
+      success: true,
       message: "Login successful",
-      redirect: "http://localhost:5173/"
-       
+      redirect: "http://localhost:5173/",
     });
   } catch (error) {
     console.error("Login error:", error);
-    res.status(400).json({ 
-      success: false, 
-      message: "Login failed", 
-      error: error.message ,
-      redirect: "http://localhost:5173/login"
+    res.status(400).json({
+      success: false,
+      message: "Login failed",
+      error: error.message,
+      redirect: "http://localhost:5173/login",
     });
   }
 };
 module.exports.Logout = (req, res) => {
-  res.status(200).json({
-    success: true,
-    message: "Logout successful",
+  req.logout((err) => {
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: "Logout failed",
+      });
+    }
+
+    res.status(200).json({
+      success: true,
+      message: "Logout successful",
+    });
   });
 };
