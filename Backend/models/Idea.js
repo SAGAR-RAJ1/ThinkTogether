@@ -7,7 +7,7 @@ const ideaSchema = new Schema({
       required: true,
     },
     description: String,
-    image: {
+    image: { 
      url:{
       type:String,
       default:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSw8683YgtL_SeTqcEnXrxT19A2iKYYZSeo8w&s"
@@ -19,10 +19,10 @@ const ideaSchema = new Schema({
     //   type:Schema.Types.ObjectId,
     //   ref:"Review",
     // }],
-    // owner:{
-    //   type:Schema.Types.ObjectId,
-    //   ref:"User",
-    // }
+     owner:{
+       type:Schema.Types.ObjectId,
+       ref:"User",
+    }
   }, { timestamps: true });
   
   //listing delete krne k baad usk andr jo review h wo sara data v delete ho jaye
