@@ -27,6 +27,16 @@ function Navbar() {
     fetchUser();
   }, []);
 
+  const closeNavbar = () => {
+    const navbar = document.getElementById("navbarNavDropdown");
+
+    if (navbar && navbar.classList.contains("show")) {
+      const bsCollapse =
+        window.bootstrap.Collapse.getOrCreateInstance(navbar);
+      bsCollapse.hide();
+    }
+  };
+
   const handleLogout = async () => {
     try {
       await axios.post(
@@ -34,9 +44,10 @@ function Navbar() {
         {},
         {
           withCredentials: true,
-        },
+        }
       );
 
+      closeNavbar();
       toast.success("Logged out successfully");
       setUser(null);
       navigate("/");
@@ -51,26 +62,20 @@ function Navbar() {
       style={{
         position: "sticky",
         width: "100%",
-        top: "0",
-        zIndex: "10",
-        background: "transparent",
+        top: 0,
+        zIndex: 10,
+        background: "#fff",
       }}
     >
       <nav className="navbar navbar-expand-lg border-bottom border-dark py-3 fs-5">
-        <div
-          className="container-fluid mx-3"
-          style={{ background: "transparent" }}
-        >
+        <div className="container-fluid mx-3">
           <Link
             className="navbar-brand fs-3"
-            style={{ color: "#0D6EFD", background: "transparent" }}
+            style={{ color: "#0D6EFD" }}
             to="/"
+            onClick={closeNavbar}
           >
-            <i
-              className="fa-solid fa-otter"
-              style={{ background: "transparent" }}
-            ></i>{" "}
-            Think-Together
+            <i className="fa-solid fa-otter"></i> Think-Together
           </Link>
 
           <button
@@ -78,6 +83,9 @@ function Navbar() {
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
           >
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -85,72 +93,106 @@ function Navbar() {
           <div
             className="collapse navbar-collapse"
             id="navbarNavDropdown"
-            style={{ background: "transparent" }}
           >
-            <ul className="navbar-nav" style={{ background: "transparent" }}>
+            <ul className="navbar-nav align-items-lg-center">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link
+                  className="nav-link"
+                  to="/"
+                  onClick={closeNavbar}
+                >
                   Home
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="/ideas">
+                <Link
+                  className="nav-link"
+                  to="/ideas"
+                  onClick={closeNavbar}
+                >
                   Ideas
                 </Link>
               </li>
 
               <li className="nav-item">
-                <Link className="nav-link" to="/myIdeas">
+                <Link
+                  className="nav-link"
+                  to="/myIdeas"
+                  onClick={closeNavbar}
+                >
                   My Ideas
                 </Link>
               </li>
 
-              <Dropdown align="end" className="ms-3">
-                <Dropdown.Toggle
-                  variant="link"
-                  id="dropdown-basic"
-                  className="text-dark text-decoration-none border-0 shadow-none d-flex align-items-center"
-                  style={{
-                    fontSize: "1.1rem",
-                    fontWeight: "500",
-                    background: "transparent",
-                  }}
-                >
-                  <i className="fa-solid fa-circle-user fs-4 me-2"></i>
-                  {user ? user.username : "Account"}
-                </Dropdown.Toggle>
+              <li className="nav-item">
+                <Dropdown align="end">
+                  <Dropdown.Toggle
+                    variant="link"
+                    id="dropdown-basic"
+                    className="text-dark text-decoration-none border-0 shadow-none d-flex align-items-center"
+                    style={{
+                      fontSize: "1rem",
+                      fontWeight: "500",
+                    }}
+                  >
+                    <i className="fa-solid fa-circle-user fs-4 me-2"></i>
 
-                <Dropdown.Menu>
-                  {user ? (
-                    <>
-                      <Dropdown.Item as={Link} to="/profile">
-                        Profile
-                      </Dropdown.Item>
+                    {user ? user.username : "Account"}
+                  </Dropdown.Toggle>
 
-                      <Dropdown.Item as="button" onClick={handleLogout}>
-                        Logout
-                      </Dropdown.Item>
-                    </>
-                  ) : (
-                    <>
-                      <Dropdown.Item as={Link} to="/login">
-                        Log In
-                      </Dropdown.Item>
+                  <Dropdown.Menu>
+                    {user ? (
+                      <>
+                        <Dropdown.Item
+                          as={Link}
+                          to="/profile"
+                          onClick={closeNavbar}
+                        >
+                          Profile
+                        </Dropdown.Item>
 
-                      <Dropdown.Item as={Link} to="/signup">
-                        Sign Up
-                      </Dropdown.Item>
-                    </>
-                  )}
-                </Dropdown.Menu>
-              </Dropdown>
+                        <Dropdown.Item
+                          as="button"
+                          onClick={handleLogout}
+                        >
+                          Logout
+                        </Dropdown.Item>
+                      </>
+                    ) : (
+                      <>
+                        <Dropdown.Item
+                          as={Link}
+                          to="/login"
+                          onClick={closeNavbar}
+                        >
+                          Login
+                        </Dropdown.Item>
+
+                        <Dropdown.Item
+                          as={Link}
+                          to="/signup"
+                          onClick={closeNavbar}
+                        >
+                          Sign Up
+                        </Dropdown.Item>
+                      </>
+                    )}
+                  </Dropdown.Menu>
+                </Dropdown>
+              </li>
             </ul>
 
-            <ul className="navbar-nav ms-auto">
+            <ul className="navbar-nav ms-auto mt-3 mt-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/post">
-                  <button className="btn btn-primary">Post Idea</button>
+                <Link
+                  className="nav-link"
+                  to="/post"
+                  onClick={closeNavbar}
+                >
+                  <button className="btn btn-primary">
+                    Post Idea
+                  </button>
                 </Link>
               </li>
             </ul>
