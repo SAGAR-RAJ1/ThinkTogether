@@ -20,7 +20,7 @@ const cors = require("cors");
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://your-vercel-app.vercel.app"
+    "https://think-together-frontend-rho.vercel.app",
   ],
   credentials: true
 }));
