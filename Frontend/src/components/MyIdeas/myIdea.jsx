@@ -24,7 +24,7 @@ function myIdea() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/ideas/${id}`, {
+      await axios.delete(`${API}/ideas/${id}`, {
         withCredentials: true,
       });
 
