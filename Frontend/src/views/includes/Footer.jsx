@@ -6,7 +6,7 @@ function Footer() {
       <hr />
       <h6 style={{textAlign:"center",marginTop:"60px"}}>&copy; 2025 Sagar Raj. All rights reserved.</h6>
       <div className="social-icons  mt-3 p-2" style={{textAlign:"center"}}>
-          <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" className="mx-2 fs-3 ">
+          <a href="https://github.com/SAGAR-RAJ1" target="_blank" rel="noreferrer" className="mx-2 fs-3 ">
             <i className="fab fa-github"></i>
           </a>
           <a href="https://www.linkedin.com/in/sagar-01-raj/" target="_blank" rel="noreferrer" className="mx-2 fs-3 ">
