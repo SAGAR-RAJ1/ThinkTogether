@@ -16,6 +16,6 @@ router.route("/login")
   .post(passport.authenticate("local"), ListingUser.PostLogin);
 
 router.route("/logout")
-.get(ListingUser.Logout);
+.post(ListingUser.Logout);
 
 module.exports = router;

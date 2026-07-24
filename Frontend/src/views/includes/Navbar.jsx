@@ -1,29 +1,55 @@
 import { Link } from "react-router-dom";
-import "./Includes.css"
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+import "./Includes.css";
 import { Dropdown } from "react-bootstrap";
 function Navbar() {
+  const navigate = useNavigate();
   const handleLogout = async () => {
     try {
-      const response = await fetch("http://localhost:3000/user/logout", { method: "POST", credentials: "include" });
-      const data = await response.json();
-      if (data.success) {
-        window.location.href = "/login";
-      }
-    } catch (error) {
-      console.error("Logout failed:", error);
+      await axios.post(
+        "http://localhost:3000/user/logout",
+        {},
+        {
+          withCredentials: true,
+        },
+      );
+
+      toast.success("Logged out successfully");
+
+      navigate("/");
+    } catch (err) {
+      console.error(err);
+      toast.error(err.response?.data?.message || err.message);
     }
   };
 
   return (
-    <div style={{position:"sticky",width:"100%",top:"0",zIndex:"10",background:"transparent"}}>
+    <div
+      style={{
+        position: "sticky",
+        width: "100%",
+        top: "0",
+        zIndex: "10",
+        background: "transparent",
+      }}
+    >
       <nav className="navbar navbar-expand-lg border-bottom border-dark py-3 fs-5 ">
-        <div className="container-fluid mx-3 ml-4  .navbar" style={{background:"transparent"}}>
+        <div
+          className="container-fluid mx-3 ml-4  .navbar"
+          style={{ background: "transparent" }}
+        >
           <Link
             className="navbar-brand fs-3"
-            style={{ color: "#0D6EFD" ,background:"transparent"}}
+            style={{ color: "#0D6EFD", background: "transparent" }}
             to="/"
           >
-            <i  style={{background:"transparent"}} class="fa-solid fa-otter"></i>Think-Together
+            <i
+              style={{ background: "transparent" }}
+              class="fa-solid fa-otter"
+            ></i>
+            Think-Together
           </Link>
           <button
             className="navbar-toggler"
@@ -36,24 +62,23 @@ function Navbar() {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarNavDropdown" style={{background:"transparent"}}>
-            <ul className="navbar-nav"  style={{background:"transparent"}}>
-              <li className="nav-item"  style={{background:"transparent"}} >
-                <Link
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/"
-       
-                >
+          <div
+            className="collapse navbar-collapse"
+            id="navbarNavDropdown"
+            style={{ background: "transparent" }}
+          >
+            <ul className="navbar-nav" style={{ background: "transparent" }}>
+              <li className="nav-item" style={{ background: "transparent" }}>
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
                 </Link>
               </li>
-              <li className="nav-item"  style={{background:"transparent"}}>
+              <li className="nav-item" style={{ background: "transparent" }}>
                 <Link className="nav-link" to="/ideas">
                   Ideas
                 </Link>
               </li>
-              <li className="nav-item"  style={{background:"transparent"}}>
+              <li className="nav-item" style={{ background: "transparent" }}>
                 <Link
                   className="nav-link"
                   to="/myIdeas"
@@ -82,32 +107,31 @@ function Navbar() {
                   Sign up
                 </Link>
               </li> */}
-          
-<Dropdown  style={{background:"transparent"}}>
-  <Dropdown.Toggle variant="link" id="dropdown-basic" >
-   User
-  </Dropdown.Toggle>
 
-  <Dropdown.Menu>
-    <Dropdown.Item href="/login">Log In</Dropdown.Item>
-    <Dropdown.Item href="/signup">Sign Up</Dropdown.Item>
-    <Dropdown.Item as="button" onClick={handleLogout}>Logout</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
+              <Dropdown style={{ background: "transparent" }}>
+                <Dropdown.Toggle variant="link" id="dropdown-basic">
+                  User
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <Dropdown.Item href="/login">Log In</Dropdown.Item>
+                  <Dropdown.Item href="/signup">Sign Up</Dropdown.Item>
+                  <Dropdown.Item as="button" onClick={handleLogout}>
+                    Logout
+                  </Dropdown.Item>
+                </Dropdown.Menu>
+              </Dropdown>
             </ul>
-            <ul className="navbar-nav ms-auto"   style={{background:"transparent"}}>
-              <li className="nav-item"  style={{background:"transparent"}}>
+            <ul
+              className="navbar-nav ms-auto"
+              style={{ background: "transparent" }}
+            >
+              <li className="nav-item" style={{ background: "transparent" }}>
                 <Link className="nav-link" to="/post">
-                  <button  
-                    className="btn btn-primary"
-                    
-                  >
-                    Post Idea
-                  </button>
+                  <button className="btn btn-primary">Post Idea</button>
                 </Link>
               </li>
             </ul>
-          
           </div>
         </div>
       </nav>
