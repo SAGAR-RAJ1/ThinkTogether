@@ -7,7 +7,7 @@ import { Routes, Route } from "react-router-dom";//without this in react routes 
 import IdeasPage from "./components/IdeasPage/Ideaspage"; 
 import PostIdea from "./components/PostIdea/PostIdea";
 import Explore from "./components/Explore/Explore";
-import MyIdea from "./components/MyIdeas/myIdea";
+import myIdea from "./components/MyIdeas/myIdea";
 import Login from "./components/user/Login";
 import Signup from "./components/user/Signup";
 import Profile from "./components/user/Profile";
@@ -30,7 +30,7 @@ function App() {
         <Route path="/ideas" element={<IdeasPage />} />
         <Route path="/post" element={<PostIdea />} />
         <Route path="/explore/:id" element={<Explore />} />
-        <Route path="/myIdeas" element={<MyIdea />} />
+        <Route path="/myIdeas" element={<myIdea />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/profile" element={<Profile />} />
