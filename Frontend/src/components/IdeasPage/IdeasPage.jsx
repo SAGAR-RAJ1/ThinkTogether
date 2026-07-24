@@ -27,7 +27,7 @@ useEffect(() => {
       >
         {ideas.length === 0 ? (
           <p>
-            <i>Loading ideas...</i>
+            <i>No Ideas...</i>
           </p>
         ) : (
           <div className="container d-flex flex-wrap justify-content-center gap-4 my-4">
