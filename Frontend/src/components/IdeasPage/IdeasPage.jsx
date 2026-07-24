@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Idea from "../IdeaCard/Idea";
 
-function Ideaspage() {
+function IdeasPage() {
   const [ideas, setIdeas] = useState([]);
   const API = import.meta.env.VITE_API_URL;
   useEffect(() => {
@@ -55,4 +55,4 @@ function Ideaspage() {
   );
 }
 
-export default Ideaspage;
+export default IdeasPage;
