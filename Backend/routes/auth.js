@@ -15,10 +15,10 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:5173/login",
+    failureRedirect: "https://think-together-frontend-rho.vercel.app/login",
   }),
   (req, res) => {
-    res.redirect("http://localhost:5173/");
+    res.redirect("https://think-together-frontend-rho.vercel.app");
   }
 );
 

@@ -67,7 +67,7 @@ module.exports.PostSignup = async (req, res) => {
         success: true,
         message: "Signup successful",
         user: registeredUser,
-        redirect: "http://localhost:5173/",
+        redirect: "https://think-together-frontend-rho.vercel.app",
       });
     });
   } catch (error) {
@@ -77,7 +77,7 @@ module.exports.PostSignup = async (req, res) => {
       success: false,
       message: "Signup failed",
       error: error.message,
-      redirect: "http://localhost:5173/signup",
+      redirect: "https://think-together-frontend-rho.vercel.app/signup",
     });
   }
 };
@@ -87,7 +87,7 @@ module.exports.PostLogin = async (req, res) => {
     res.status(200).json({
       success: true,
       message: "Login successful",
-      redirect: "http://localhost:5173/",
+      redirect: "https://think-together-frontend-rho.vercel.app",
     });
   } catch (error) {
     console.error("Login error:", error);
@@ -95,7 +95,7 @@ module.exports.PostLogin = async (req, res) => {
       success: false,
       message: "Login failed",
       error: error.message,
-      redirect: "http://localhost:5173/login",
+      redirect: "https://think-together-frontend-rho.vercel.app/login",
     });
   }
 };
