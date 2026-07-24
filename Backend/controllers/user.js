@@ -1,5 +1,21 @@
 const User = require("../models/User.js");
 
+module.exports.getProfile = async (req, res) => {
+    try {
+        const user = req.user;
+
+        res.status(200).json({
+            success: true,
+            user,
+        });
+    } catch (err) {
+        res.status(500).json({
+            success: false,
+            message: err.message,
+        });
+    }
+};
+
 module.exports.PostSignup = async (req, res) => {
   try {
     let { username, email, password } = req.body;
