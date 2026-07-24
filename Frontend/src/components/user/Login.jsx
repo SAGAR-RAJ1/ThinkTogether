@@ -1,4 +1,4 @@
-import "./user.css"
+import "./user.css";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
@@ -14,7 +14,7 @@ function Login() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
-        credentials:"include",
+        credentials: "include",
       });
 
       const data = await response.json();
@@ -40,7 +40,9 @@ function Login() {
         <div className="col-6 offset-3">
           <form onSubmit={handleSubmit} className="needs-validation" noValidate>
             <div className="mb-3">
-              <label htmlFor="username" className="form-label">Username :</label>
+              <label htmlFor="username" className="form-label">
+                Username :
+              </label>
               <input
                 type="text"
                 placeholder="Add username"
@@ -52,7 +54,9 @@ function Login() {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">Password :</label>
+              <label htmlFor="password" className="form-label">
+                Password :
+              </label>
               <input
                 type="password"
                 placeholder="Add password"
@@ -63,7 +67,18 @@ function Login() {
                 required
               />
             </div>
-            <button type="submit" className="btn-success btn">Login</button>
+            <button type="submit" className="btn-success btn">
+              Login
+            </button>
+            <button
+              type="button"
+              className="btn btn-outline-dark w-100 mt-3"
+              onClick={() => {
+                window.location.href = "http://localhost:3000/auth/google";
+              }}
+            >
+              Continue with Google
+            </button>
           </form>
         </div>
       </div>

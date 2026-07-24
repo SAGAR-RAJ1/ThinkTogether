@@ -29,9 +29,52 @@ const Explore = () => {
           <div key={idea._id} className="card mb-3">
             <img src={idea.image.url} className="explore-img card-img-top" alt={idea.title} />
             <div className="card-body">
-              <h5 className="card-title">{idea.title}</h5>
+              <h3 className="card-title mb-3">{idea.title}</h3>
+
               <p className="card-text">{idea.description}</p>
-              <Link to="/" className="btn btn-primary">Back to Home</Link>
+
+              <hr />
+
+              <p>
+                <strong>Posted By:</strong> {idea.owner?.name || idea.owner?.username || "Unknown"}
+              </p>
+
+              <p>
+                <strong>Email:</strong> {idea.owner?.email || "Not Available"}
+              </p>
+
+              <p>
+                <strong>Posted On:</strong>{" "}
+                {idea.createdAt
+                  ? new Date(idea.createdAt).toLocaleDateString()
+                  : "Not Available"}
+              </p>
+
+              <div className="d-flex gap-2 mt-3 flex-wrap">
+                {idea.owner?.github && (
+                  <a
+                    href={idea.owner.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="btn btn-dark"
+                  >
+                    Visit GitHub
+                  </a>
+                )}
+
+                {idea.owner?.email && (
+                  <a
+                    href={`mailto:${idea.owner.email}`}
+                    className="btn btn-outline-primary"
+                  >
+                    Contact via Email
+                  </a>
+                )}
+
+                <Link to="/" className="btn btn-primary">
+                  Back to Home
+                </Link>
+              </div>
             </div>
           </div>
                 ))}

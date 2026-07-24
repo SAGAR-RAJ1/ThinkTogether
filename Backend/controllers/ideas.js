@@ -3,7 +3,10 @@ const Idea = require("../models/Idea.js");
 //Get all Ideas
 exports.getAllIdeas = async (req, res) => {
   try {
-    const ideas = await Idea.find();
+    const ideas = await Idea.find().populate(
+      "owner",
+      "name username email github linkedin portfolio profileImage"
+    );
     res.json(ideas); // send JSON response
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -16,7 +19,10 @@ module.exports.myIdeas = async (req, res) => {
 
     const ideas = await Idea.find({
       owner: req.user._id,
-    });
+    }).populate(
+      "owner",
+      "name username email github linkedin portfolio profileImage"
+    );
 
     console.log("Ideas:", ideas);
 

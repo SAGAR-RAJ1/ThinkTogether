@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const app = express();
 const path = require('path');
@@ -12,6 +13,7 @@ const passport = require("passport");//for authentication and authorization
 const session = require("express-session");
 const localStrategy = require("passport-local");
 const User = require("./models/User");//This loads your MongoDB model.
+require("./config/googlePassport");
 
 const cors = require("cors");
 // used to connect backend and frontend, then as they are in different folders
@@ -76,5 +78,7 @@ app.use("/ideas", ideaRoutes);
 //todo Routes to / will redirected or i could say will go to ./routes/idea
 const userRoutes = require("./routes/user");
 app.use("/user", userRoutes);
+const authRoutes = require("./routes/auth");
+app.use("/auth", authRoutes);
 
 app.listen(3000);

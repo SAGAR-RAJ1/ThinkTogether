@@ -1,45 +1,45 @@
-import React, { useState } from 'react'
-import "./user.css"
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./user.css";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 // This is another React Router Hook.
 // It is used to change pages using JavaScript.
 // Think of it as React’s version of res.redirect("/")
 
 function Signup() {
   const [form, setForm] = useState({
-    username: '',
-    email: '',
-    password: ''
+    username: "",
+    email: "",
+    password: "",
   });
-  const navigate = useNavigate();//Creates a function that can change the URL.
+  const navigate = useNavigate(); //Creates a function that can change the URL.
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm(prev => ({
+    setForm((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:3000/user/signup', {
-        method: 'POST',
+      const res = await fetch("http://localhost:3000/user/signup", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(form),//fetch cannot send a JavaScript object directly. so use this.
-        credentials: 'include' //This tells the browser:“If cookies exist, send them too.”
-                               //Useful for authentication and sessions.Without it,
-                               // the browser doesn’t send cookies in cross-origin requests.
+        body: JSON.stringify(form), //fetch cannot send a JavaScript object directly. so use this.
+        credentials: "include", //This tells the browser:“If cookies exist, send them too.”
+        //Useful for authentication and sessions.Without it,
+        // the browser doesn’t send cookies in cross-origin requests.
       });
       const data = await res.json();
       if (res.ok) {
         toast.success(data.message || "Signup successful!");
         setTimeout(() => {
-          navigate('/');
+          navigate("/");
         }, 1500);
       } else {
         toast.error(data.message || "Signup failed!");
@@ -55,7 +55,9 @@ function Signup() {
       <div className="col-6 offset-3">
         <form noValidate className="needs-validation" onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="username" className="form-label">Username : </label>
+            <label htmlFor="username" className="form-label">
+              Username :{" "}
+            </label>
             <input
               type="text"
               placeholder="Add username"
@@ -70,7 +72,9 @@ function Signup() {
             <div className="invalid-feedback">Not Good</div>
           </div>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label">Email : </label>
+            <label htmlFor="email" className="form-label">
+              Email :{" "}
+            </label>
             <input
               type="text"
               placeholder="Add email"
@@ -85,7 +89,9 @@ function Signup() {
             <div className="invalid-feedback">Not Good</div>
           </div>
           <div className="mb-3">
-            <label htmlFor="password" className="form-label">Password : </label>
+            <label htmlFor="password" className="form-label">
+              Password :{" "}
+            </label>
             <input
               type="text"
               placeholder="Add password"
@@ -99,11 +105,22 @@ function Signup() {
             <div className="valid-feedback">Looks Good!</div>
             <div className="invalid-feedback">Not Good</div>
           </div>
-          <button type="submit" className="btn-success btn">Sign up</button>
+          <button type="submit" className="btn-success btn">
+            Sign up
+          </button>
+          <button
+            type="button"
+            className="btn btn-outline-dark w-100 mt-3"
+            onClick={() => {
+              window.location.href = "http://localhost:3000/auth/google";
+            }}
+          >
+            Continue with Google
+          </button>
         </form>
       </div>
     </div>
   );
 }
 
-export default Signup
+export default Signup;
