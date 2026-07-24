@@ -1,3 +1,4 @@
+//! upper half of the home page
 import "./home.css";
 import Typed from "typed.js";
 import { useEffect } from "react";

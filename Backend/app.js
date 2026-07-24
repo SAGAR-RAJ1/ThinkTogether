@@ -3,21 +3,21 @@ const app = express();
 const path = require('path');
 const flash = require("connect-flash");
 app.set("view engine", "ejs");
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json());//This middleware converts JSON into a JavaScript object. without this req.body will be undefined
+app.use(express.urlencoded({ extended: true }));//This is for HTML forms.username=Sagar&password=123 ->Express converts it into ->req.body = {username:"Sagar",password:"123"}
+app.use(express.static(path.join(__dirname, "public")));//Used to serve static files.
 app.set("views",path.join(__dirname, "views"));
 
-const passport = require("passport");
+const passport = require("passport");//for authentication and authorization
 const session = require("express-session");
 const localStrategy = require("passport-local");
-const User = require("./models/User");
+const User = require("./models/User");//This loads your MongoDB model.
 
 const cors = require("cors");
 // used to connect backend and frontend, then as they are in different folders
 app.use(cors({
   origin: "http://localhost:5173", // frontend
-  credentials: true
+  credentials: true//allows cookie sessions to pass
 }));
 
 const mongoose = require('mongoose');

@@ -1,8 +1,9 @@
+//! Card Preview k code hai
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import "./Explore.css";
 const Explore = () => {
-  const { id } = useParams(); // Get idea id from route
+  const { id } = useParams(); // Get idea id from url °
 
   const [ideas, setIdeas] = useState([]);
   useEffect(() => {

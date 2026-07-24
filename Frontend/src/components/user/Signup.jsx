@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import "./user.css"
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+// This is another React Router Hook.
+// It is used to change pages using JavaScript.
+// Think of it as React’s version of res.redirect("/")
 
 function Signup() {
   const [form, setForm] = useState({
@@ -9,7 +12,7 @@ function Signup() {
     email: '',
     password: ''
   });
-  const navigate = useNavigate();
+  const navigate = useNavigate();//Creates a function that can change the URL.
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,8 +30,10 @@ function Signup() {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(form),
-        credentials: 'include'
+        body: JSON.stringify(form),//fetch cannot send a JavaScript object directly. so use this.
+        credentials: 'include' //This tells the browser:“If cookies exist, send them too.”
+                               //Useful for authentication and sessions.Without it,
+                               // the browser doesn’t send cookies in cross-origin requests.
       });
       const data = await res.json();
       if (res.ok) {

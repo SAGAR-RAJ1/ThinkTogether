@@ -1,3 +1,4 @@
+//! It shows all your ideas that you have posted
 import React, { use, useEffect } from 'react'
 import "./myIdea.css"
 import { useState } from 'react'

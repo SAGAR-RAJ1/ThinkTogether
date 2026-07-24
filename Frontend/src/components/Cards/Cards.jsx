@@ -1,3 +1,4 @@
+//! Jo front card 8 show ho rha uska code hai
 import "./Cards.css";
 import Idea from "../IdeaCard/Idea";
 import { useEffect, useState } from "react";
