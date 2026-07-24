@@ -3,7 +3,7 @@ const router = express.Router({ mergeParams: true }); //merge params to get the 
 const User = require("../models/User");
 const passport = require("passport");
 const ListingUser = require("../controllers/user");
-
+const {isLoggedIn}=require("../Middleware/script.js")
 
 // we are using router.route as we it is used to structure the code I say, but that's not all it's used For writing routes, whether it is get post delete if they have the same path, we can club them together with a single path. You will be shown below
 
@@ -17,5 +17,7 @@ router.route("/login")
 
 router.route("/logout")
 .post(ListingUser.Logout);
+
+router.get("/profile", isLoggedIn, ListingUser.getProfile);
 
 module.exports = router;
