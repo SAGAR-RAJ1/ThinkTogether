@@ -4,12 +4,14 @@ import Idea from "../IdeaCard/Idea";
 
 function Ideaspage() {
   const [ideas, setIdeas] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3000/ideas")
-      .then((res) => res.json())
-      .then((data) => setIdeas(data))
-      .catch((err) => console.error("Error fetching ideas:", err));
-  }, []);
+useEffect(() => {
+  fetch("http://localhost:3000/ideas", {
+    credentials: "include",
+  })
+    .then((res) => res.json())
+    .then((data) => setIdeas(data))
+    .catch((err) => console.error("Error fetching ideas:", err));
+}, []);
   return (
     <>
       <h4
