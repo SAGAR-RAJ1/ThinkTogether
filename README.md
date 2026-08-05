@@ -4,26 +4,6 @@
 
 ---
 
-## 📖 Table of Contents
-
-- Project Overview
-- Features
-- Tech Stack
-- Project Architecture
-- Folder Structure
-- Screenshots
-- Installation
-- Environment Variables
-- API Overview
-- Authentication Flow
-- Database Schema
-- Project Workflow
-- Future Improvements
-- Learning Outcomes
-- Author
-
----
-
 # 🚀 Project Overview
 
 ThinkTogether is a collaborative platform where users can:
@@ -70,7 +50,6 @@ The project follows the **MERN Stack** architecture with React on the frontend a
 
 ## Security
 
-- Protected Routes
 - Authentication Middleware
 - Authorization (Only owner can edit/delete)
 - Environment Variables
@@ -104,18 +83,13 @@ The project follows the **MERN Stack** architecture with React on the frontend a
 
 # 🏗 Project Architecture
 
-```text
-                React Frontend
-                      │
-                Axios Requests
-                      │
-                Express Backend
-                      │
-        Controllers → Middleware
-                      │
-                  Mongoose
-                      │
-               MongoDB Atlas
+```mermaid
+flowchart TD
+    A[React Frontend] --> B[Axios Requests]
+    B --> C[Express Backend]
+    C --> D[Controllers & Middleware]
+    D --> E[Mongoose ODM]
+    E --> F[(MongoDB Atlas)]
 ```
 
 ---
