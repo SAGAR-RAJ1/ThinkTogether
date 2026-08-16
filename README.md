@@ -142,9 +142,9 @@ Example:
 
 ## Clone Repository
 
-1. `Star` this repo.
-2. `Fork` this repo, to get a copy of your own for any change to make.
-3. `Clone` the forked repo using the following command:
+1. (Optional) Star this repo.
+2. Fork this repo to your GitHub account.
+3. Clone your fork using the following command:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/ThinkTogether.git
