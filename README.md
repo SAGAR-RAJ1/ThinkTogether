@@ -4,26 +4,6 @@
 
 ---
 
-## 📖 Table of Contents
-
-- Project Overview
-- Features
-- Tech Stack
-- Project Architecture
-- Folder Structure
-- Screenshots
-- Installation
-- Environment Variables
-- API Overview
-- Authentication Flow
-- Database Schema
-- Project Workflow
-- Future Improvements
-- Learning Outcomes
-- Author
-
----
-
 # 🚀 Project Overview
 
 ThinkTogether is a collaborative platform where users can:
@@ -70,7 +50,6 @@ The project follows the **MERN Stack** architecture with React on the frontend a
 
 ## Security
 
-- Protected Routes
 - Authentication Middleware
 - Authorization (Only owner can edit/delete)
 - Environment Variables
@@ -104,18 +83,13 @@ The project follows the **MERN Stack** architecture with React on the frontend a
 
 # 🏗 Project Architecture
 
-```text
-                React Frontend
-                      │
-                Axios Requests
-                      │
-                Express Backend
-                      │
-        Controllers → Middleware
-                      │
-                  Mongoose
-                      │
-               MongoDB Atlas
+```mermaid
+flowchart TD
+    A[React Frontend] --> B[Axios Requests]
+    B --> C[Express Backend]
+    C --> D[Controllers & Middleware]
+    D --> E[Mongoose ODM]
+    E --> F[(MongoDB Atlas)]
 ```
 
 ---
@@ -167,6 +141,10 @@ Example:
 # ⚙️ Installation
 
 ## Clone Repository
+
+1. (Optional) Star this repo.
+2. Fork this repo to your GitHub account.
+3. Clone your fork using the following command:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/ThinkTogether.git
@@ -248,40 +226,28 @@ PORT=
 
 ## Local Authentication
 
-```text
-Register
-      │
-Hash Password
-      │
-Store User
-      │
-Login
-      │
-Passport Local
-      │
-Session Created
-      │
-Cookie Stored
-      │
-Authenticated User
+```mermaid
+flowchart TD
+    A[Register] --> B[Hash Password]
+    B --> C[Store User]
+    C --> D[Login]
+    D --> E[Passport Local Strategy]
+    E --> F[Session Created]
+    F --> G[Cookie Stored in Browser]
+    G --> H[Authenticated User]
 ```
 
 ---
 
 ## Google OAuth
 
-```text
-Continue with Google
-        │
-Google Login
-        │
-Google Callback
-        │
-Find/Create User
-        │
-Session Created
-        │
-Redirect Frontend
+```mermaid
+flowchart TD
+    A[Continue with Google] --> B[Google Login]
+    B --> C[Google Callback]
+    C --> D[Find / Create User]
+    D --> E[Session Created]
+    E --> F[Redirect to Frontend]
 ```
 
 ---
@@ -318,51 +284,35 @@ updatedAt
 
 Relationship
 
-```text
-One User
-      │
-      ▼
-Many Ideas
+```mermaid
+erDiagram
+    USER ||--o{ IDEA : creates
 ```
 
 ---
 
 # 🔄 Project Workflow
 
-```text
-User
-
-↓
-
-React UI
-
-↓
-
-Axios Request
-
-↓
-
-Express Route
-
-↓
-
-Middleware
-
-↓
-
-Controller
-
-↓
-
-MongoDB
-
-↓
-
-JSON Response
-
-↓
-
-React UI Updated
+```mermaid
+sequenceDiagram
+    autonumber
+    actor U as User
+    participant UI as React UI
+    participant Req as Axios Request
+    participant R as Express Route
+    participant M as Middleware
+    participant C as Controller
+    participant DB as MongoDB
+    
+    U->>UI: Interacts with App
+    UI->>Req: Triggers HTTP Call
+    Req->>R: API Endpoint Request
+    R->>M: Executes Auth / Validation
+    M->>C: Passes Control
+    C->>DB: Database Query / Update
+    DB-->>C: Data Payload
+    C-->>UI: Sends JSON Response
+    UI-->>U: Updates UI / State
 ```
 
 ---
